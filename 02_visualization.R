@@ -66,3 +66,38 @@ pairs(sentdol)
 #viridis, https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
 plot(sentdol, col=viridis(100))
 plot(sentdol, col=mako(100))
+
+# 11/03
+sentdol= im.import("sentinel.dolomite")
+# oppure scrivi
+print(sentdol)
+nlyr(sentdol)
+ncell(sentdol) # numero finale di pixel a nostra disposizione
+ncell(sentdol)*nlyr(sentdol)
+plot(sentdol[(1)])
+
+#layer, usiamo più bande per fare un grafico
+# 1 = blue (b2)
+# 2 = green (b3)
+# 3 = red (b4)
+# 4 = NIR (b8)
+
+# RGB, "red green and blue" sono colori da cui si possono prendere tutti i colori che vogliamo. Sono filtri usati per fare sovrapposizione di colori e creare tutti i colori possibili.
+# r è il valore di rgb, attribuisco a ogni lettera rgb una banda di colore, queste verranno poi sovrapposte
+im.plotRGB(sentdol, r=3, g=2, b=1) #immagine a colori naturali 
+
+#adesso proviamo ad usare quella dell'infrarosso vicino (immagine a falsi colori)
+
+im.plotRGB(sentdol, r=4, g=3, b=2)
+
+#excersice: plot the image using the NIR ontop of the green component of the RGB scheme
+
+im.plotRGB(sentdol, r=3, g=4, b=2)
+
+im.multiframe(1,2)
+im.plotRGB(sentdol, r=4,g=3,b=2)
+im.plotRGB(sentdol, r=3, g=4, b=2)
+dev.off
+
+# usiamo i colori effettivi di riflettanza delle varie bande
+
