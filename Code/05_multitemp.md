@@ -14,5 +14,8 @@ grdif = gr[[1]] - gr[[4]]
 ```
 
 the output will be something like:
+<img src="../Pics/difgreen.jpeg" width=100% />
 
-<img src = "https://github.com/chiaraborelli/Telerilevamento/blob/main/Pics/difgreen.jpeg" width=100 % />
+> Note: information about the copernicus programme can be found at the [Copernicus page](https://www.copernicus.eu/)
+
+
