@@ -14,3 +14,5 @@ grdif = gr[[1]] - gr[[4]]
 ```
 
 the output will be something like:
+
+<img src = "../Pics/difgreen.jpeg" width=100 % />
