@@ -1,0 +1,22 @@
+# R code for performing multitemporal analysis
+
+library(imageRy)
+library(terra)
+
+im.list() #mostra quanto diossidi di azoto vi erano nel periodo di lock down
+# i diossidi di azoto sono veicolati dal traffico, di conseguenza di aspettiamo che sia diminuito lo sviluppo di ossidi di azoto.
+#I dati da utilizzare sono quelli che iniziano con "EN"
+
+
+EN_01 = im.import("EN_01.png")
+EN_01 = flip (EN_01)
+plot(EN_01) # è l'immagine pre lock down
+
+
+EN_13 = im.import("EN_13.png")
+EN_13 = flip (EN_13)
+plot(EN_13)
+
+#excercice plot the two images one beside the other
+
+
