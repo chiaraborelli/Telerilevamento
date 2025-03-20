@@ -1,8 +1,9 @@
 # R code for performing multitemporal analysis
 
+Install.packages("ggridges") #this is needed to create ridgeline plots (se lo metti all'esame il prof lo chiede)
 library(imageRy)
 library(terra)
-
+library(viridis)
 im.list() #mostra quanto diossidi di azoto vi erano nel periodo di lock down
 # i diossidi di azoto sono veicolati dal traffico, di conseguenza di aspettiamo che sia diminuito lo sviluppo di ossidi di azoto.
 #I dati da utilizzare sono quelli che iniziano con "EN"
@@ -49,6 +50,53 @@ setwd("C:\Users\chiar\Desktop\UNIBO\Magistrale") # se viene errore devi cambiare
 
 getwd() # wd: working directory
 plot(gr)
+
+#Rdgeline plots
+library(ggplot2)
+im.ridgeline(gr)
+im.ridgeline(gr, scale=1)
+#il parametro di scala definisce quanto può essere grande un picco, se mettiamo scala=2 il grafico si sovrappone con quello sopra
+im.ridgeline(gr, scale=2)
+#possiamo aggiungere anche un colore diverso
+?im.ridgeline
+im.ridgeline(gr, scale=2, palette="inferno")
+
+im.list()
+
+#excercise: import the NDVI data from sentinel
+im.import("Sentinel2")
+ndvi=im.import("Sentinel2")
+ndvi
+im.ridgeline(ndvi, scale=2)
+
+#changing names
+# sources:  Sentinel2_NDVI_2020-02-21.tif
+            Sentinel2_NDVI_2020-05-21.tif
+            Sentinel2_NDVI_2020-08-21.tif
+            Sentinel2_NDVI_2020-11-21.tif
+
+names(ndvi)=c("02_Feb", "05_May", "08_Aug", "11_Nov")
+ndvi
+im.ridgeline(ndvi, scale=2)
+im.ridgeline(ndvi, scale=2, palette="mako")
+
+pairs(ndvi) #posso fare un plot nel tempo dei vari ndvi
+
+plot(ndvi[[1]], ndvi[[2]])
+#dove sarebbero i dati se fossero uguali??:
+#y=x (es. dove la data di maggio è = a quella di febbraio)
+# una funzione che descrive una linea: y= a + bx
+#l'intercetta "a" è dove l'asse x colpisce quella y, nel caso di x = y , a=0
+#y = a + bx = 0 + 1x
+plot(ndvi[[1]], ndvi[[2]], xlim=c(-0.3,0.9), ylim=c(-0.3, 0.9)) #ho fatto il plot di due dataset
+abline(0, 1, col="red")
+
+im.multiframe(1,3)
+plot(ndvi[[1]])
+plot(ndvi[[2]])
+plot(ndvi[[1]], ndvi[[2]], xlim=c(-0.3,0.9), ylim=c(-0.3, 0.9))
+abline(0,1, col="red")
+
 
 
 
