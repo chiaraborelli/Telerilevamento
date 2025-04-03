@@ -45,7 +45,7 @@ y1992 = c(83, 17) #y sta per year
 y2006 = c(45, 54) 
 tabout = data.frame(class, y1992, y2006)
 
-# ggplot(finalt, aes(x=class, y=y1992, color=class)) questa funzuione crea la struttura del grafico, ora dobbiamo definire come lo vogliamo fare
+# ggplot(finalt, aes(x=class, y=y1992, color=class)) questa funzione crea la struttura del grafico, ora dobbiamo definire come lo vogliamo fare
 
 p1 = ggplot(tabout, aes(x=class, y = y1992, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #così sono sicura che avrò due assi uguali
 p2 = ggplot(tabout, aes(x=class, y = y2006, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
@@ -57,3 +57,37 @@ p0=im.ggplot(mato1992)
 p00=im.ggplot(mato2006)
 
 p0 + p00 + p1 + p2
+
+#Apriamo il solar orbiter, si cerca su internet
+
+im.list()
+solar = im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
+
+#exercise: classify the image in three classes _ im.classify()
+solarc= im.classify(solar, num_clusters=3)
+im.multiframe(1,2)
+
+plot(solar)
+plot(solarc)
+
+#funzione subst 
+solarcs= subst(solarc, c(3,1,2), c("c1_low", "c2_medium", "c3_high")) #sostituisco i valori 1 2 3 con low mwdium e high
+plot(solarcs)
+
+#excercise: calculate the percentages of the Sun energy classes with one line of code
+
+percsolar= freq(solarcs)$count * 100 / ncell(solarcs)
+
+#create dataframe
+class = c("c1_low","c2_medium","class3_high")
+perc = c(38,41,21)
+tabsol = data.frame(class,perc)
+
+#finalggplot (aes sta per aesthetic)
+ggplot(tabsol, aes(x=class, y=perc, fill=class, color=class)) +
+geom_bar(stat="identity") # +
+#ylim(c(0,100))
+#coord_flip() + scale_y_reverse()
+
+
+
