@@ -27,3 +27,10 @@ sent = im.import("sentinel.png")
 #band 3 = green
 
 #Excercise plot the image in RGB with the NIR ontop of the red component
+im.plotRGB(sent, r = 1, g = 2, b = 3)
+
+#Excercise: make three plots with NIR ontop of each component: r, g, b
+im.multiframe(1,3)
+im.plotRGB(sent, r = 2, g = 1, b = 3)
+im.plotRGB(sent, r = 3, g = 2, b = 1)
+im.plotRGB(sent, r = 1, g = 2, b = 3)
