@@ -1,8 +1,8 @@
 # Code for calculating spatial variability
-
+library(patchwork)
 library(terra)
 library(imageRy)
-
+install.packages("RStoolbox")
 # Standard deviation, in questo caso calcoliamo una formula per trovare la "population" dal grafico a campana della deviazione standard
 23, 22, 23, 49 #(età di quattro persone nell'aula)
 
@@ -54,9 +54,12 @@ im.ggplot(sd3)
 #Excercise: plot ddthe two sd maps (3 and 5) one beside the pther with ggplot
 library(ggplot)
 library(patchwork)
+library(RStoolbox)
 im.multiframe(1,2)
 p1 = im.ggplot(sd3)
 p2 = im.ggplot(sd5)
 p1 + p2
 
-#Excercise 
+#Excercise: with ggplot, plot the original set in RGB (ggRGB) together with
+p0 = ggRGB(sent, r=1, g=2, b=3)
+p0 + p1 + p2
