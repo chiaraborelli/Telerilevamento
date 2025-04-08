@@ -34,3 +34,29 @@ im.multiframe(1,3)
 im.plotRGB(sent, r = 2, g = 1, b = 3)
 im.plotRGB(sent, r = 3, g = 2, b = 1)
 im.plotRGB(sent, r = 1, g = 2, b = 3)
+
+nir = sent[[1]] #utilizziamo un singolo infrarosso (questo per il calcolo della deviazione standard)
+
+#Excercise: plot the nir band with the inferno color ramp palette
+plot(nir, col = inferno (100))
+sd3 = focal(nir, w=3, fun=sd) # sd è la deviazione standard
+plot(sd3)
+
+im.multiframe(1,2)
+im.plotRGB(sent, r=1, g=2, b=3)
+
+#Excercise: calculate standard deviation of the nir band with a moving window of 5x5 pixels
+sd5 = focal(nir, w=c(5,5), fun=sd)
+
+#Excercise: use ggplot to plot the standard deviation
+im.ggplot(sd3)
+
+#Excercise: plot ddthe two sd maps (3 and 5) one beside the pther with ggplot
+library(ggplot)
+library(patchwork)
+im.multiframe(1,2)
+p1 = im.ggplot(sd3)
+p2 = im.ggplot(sd5)
+p1 + p2
+
+#Excercise 
