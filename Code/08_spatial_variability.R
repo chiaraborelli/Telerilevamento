@@ -63,3 +63,63 @@ p1 + p2
 #Excercise: with ggplot, plot the original set in RGB (ggRGB) together with
 p0 = ggRGB(sent, r=1, g=2, b=3)
 p0 + p1 + p2
+
+
+#10/04/2025, what to do in case of huge image
+
+sent = im.import("sentinel.png")
+sent = flip(sent)
+plot(sent)
+sent
+
+ncell(sent) # numero di pixel totali
+ncell(sent)*nlyr(sent)
+senta = aggregate(sent, fact=2) #mettendo il fattore uguale a 2 dimezzo il numero di pixel che avevo prima
+senta
+
+senta5 = aggregate(sent, fact=5) #mettendo il fattore uguale a 5 ho diminuito ancora di più la risoluzione dell'immagine
+senta5
+
+ncell(senta5)*nlyr(sent5) #nlyr è il numero di livelli
+#101760
+
+
+#Excercise: make a multiframe and plot in RGB the three images (or,...
+im.multiframe(1,3)
+im.plotRGB(sent, r=1, g=2, b=3)
+im.plotRGB(senta, r=1, g=2, b=3)
+im.plotRGB(senta5, r=1, g=2, b=3)
+
+#Calculating standard deviation
+nira = senta[[1]]
+sda3a = focal(nira, w=c(3,3), fun="sd")
+
+
+#Excercise: calculate the standard deviation for the factor 5 image
+nira5 = senta5[[1]]
+sda5a = focal(nira5, w=c(3,3), fun="sd")
+sda5a5 =focal(nira5, w=c(3,3), fun="sd")
+plot(sda5a)
+
+im.multiframe(2,2)
+plot(sd3, col=turbo(100))
+plot(sda3a, col=turbo(100))
+plot(sda5a, col=turbo(100))
+plot(sda5a5, col=turbo(100))
+
+p1= im.ggplot(sd3)
+p2= im.ggplot(sda3a)
+p3= im.ggplot(sda5a)
+p4= im.ggplot(sda5a5)
+
+#Calcolo della varianza, sommatoria degli scarti quadratici diviso il numero di scarti
+#nir
+var3 = sd3^2
+dev.off()
+plot(var3)
+
+sd5= focal(nir, w=c(5,5), fun="sd")
+var5 = sd5^2
+plot(var5)
+
+#Thursday: stratch, variance, resampling
