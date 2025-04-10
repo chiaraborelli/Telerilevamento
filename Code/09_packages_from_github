@@ -1,0 +1,8 @@
+# R code for installing packages from GitHub
+
+library(devtools) #or removers danno entrambi la stessa cosa
+install_github("ducciorocchini"/cblindplot")
+library(cblindplot)
+
+ 
+install_github("clauswilke/colorblindr")
