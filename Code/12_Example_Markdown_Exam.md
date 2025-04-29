@@ -12,7 +12,7 @@ library(imageRy)
 library(viridis) 
 ```
 ```r
-setwd("~C:/Users/chiar/Desktop")
+setwd("C:/Users/chiar/Desktop/UNIBO/Magistrale/Telerilevamento")
 fires =rast("Fire.jpg")
 plot(fires)
 fires = flip(fires)
