@@ -4,6 +4,7 @@ library(viridis)
 library(devtools)
 library(cblindplot)Comincia a scrivere
 library(ggplot2)
+library(RStoolbox)
 
 setwd("C:/Users/chiar/Desktop/UNIBO/Magistrale/Telerilevamento/Esame foto") #Sono 6 le foto ricavate, che msotrano il reintegro del paesaggio a seguito dell'eruzione
 scaturita dal Mount Saint Helen nel 1980, qui di seguito vengono aperte su R.
@@ -114,8 +115,12 @@ percHelen25 = propHelen25 * 100
 #creaiamo un data.frame (ovvero una tabella)
 #definiamo le colonne
 class = c("forest", "human")  #uso il c perché sono due elementi dello stesso vettore
-y84 = c(69, 31) #y sta per year
+y84 = c(69, 31) #y significa year
 y25 = c(84, 16) 
 tabout = data.frame(class, y84, y25)
 d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #così sono sicura che avrò due assi uguali
 d2 = ggplot(tabout, aes(x=class, y = y25, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+d0=im.ggplot(Helen84)
+d00=im.ggplot(Helen25)
+
+
