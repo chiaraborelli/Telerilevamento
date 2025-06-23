@@ -70,7 +70,7 @@ ndvi25 = (Helen25[[1]] - Helen25[[2]])/(Helen25[[1]] + Helen25[[2]])
 plot(ndvi25)
  im.multiframe(2,1)
 plot(ndvi84, col = inferno(100))
-plot(ndvi25), col = inferno(100))
+plot(ndvi25, col = inferno(100))
 
 
 #differenza tra i valori dvi dell'immagine dell'84 e del 25
@@ -122,5 +122,17 @@ d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identit
 d2 = ggplot(tabout, aes(x=class, y = y25, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
 d0=im.ggplot(Helen84)
 d00=im.ggplot(Helen25)
+
+
+ncell(Helen84) # numero di pixel totali=1384395
+ncell(Helen84)*nlyr(Helen84) #4153185
+senta = aggregate(Helen84, fact=2) #mettendo il fattore uguale a 2 dimezzo il numero di pixel che avevo prima
+senta
+
+senta5 = aggregate(Helen84, fact=5) #mettendo il fattore uguale a 5 ho diminuito ancora di più la risoluzione dell'immagine
+senta5
+
+
+
 
 
