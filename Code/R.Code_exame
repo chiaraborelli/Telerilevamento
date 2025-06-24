@@ -64,13 +64,15 @@ dvi25=Helen25[[1]] - Helen25[[2]] #NIR-red
 plot(dvi25, col=inferno(100))
 
 #CALCOLO NDVI,Normalized Difference Vegetation Index, è un indice utile per osservare la salute della vegetazione
-ndvi84 = (Helen84[[1]] - Helen84[[2]])/(Helen84[[1]] + Helen84[[2]])
-plot(ndvi84, col = inferno(100))
-ndvi25 = (Helen25[[1]] - Helen25[[2]])/(Helen25[[1]] + Helen25[[2]])
-plot(ndvi25)
+ndvi84 = (Helen84[[1]] - Helen84[[2]]) / (Helen84[[1]] + Helen84[[2]])
+ndvi84 = clamp(ndvi84, -1, 1)
+ndvi25 = (Helen25[[1]] - Helen25[[2]]) / (Helen25[[1]] + Helen25[[2]])
+ndvi25 = clamp(ndvi25, -1, 1)
+
  im.multiframe(2,1)
-plot(ndvi84, col = inferno(100))
-plot(ndvi25, col = inferno(100))
+plot(ndvi84, col = rev(inferno(100)), main = "NDVI 1984", type = "continuous")
+plot(ndvi25, col = rev(inferno(100)), main = "NDVI 2025", type = "continuous")
+
 
 
 #differenza tra i valori dvi dell'immagine dell'84 e del 25
