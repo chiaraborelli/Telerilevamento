@@ -52,8 +52,20 @@ plot(Helen25)
 Helen25=flip(Helen25)
 plot(Helen25)
 ```
-Sono state messe a confronto le seguenti immagini:
-<img src="C:\Users\chiar\Desktop\UNIBO\Magistrale\Telerilevamento\Esame foto\Confronto.312.jpeg" width=100%\>
+Di tutte le immagini plottate su R
+```r
+#Vediamo che in meno di 50anni ci sono stati visibili cambiamenti
+im.multiframe(3,2)
+im.plotRGB(Helen84, r=3, g=1, b=2)
+im.plotRGB(Helen16, r=3, g=1, b=2)
+im.plotRGB(Helen00, r=3, g=1, b=2)
+im.plotRGB(Helen07, r=3, g=1, b=2)
+im.plotRGB(Helen20, r=3, g=1, b=2)
+im.plotRGB(Helen25, r=3, g=1, b=2)
+```
+Sono state messe a confronto le seguenti immagini
+<img src="https://github.com/user-attachments/assets/a47a26ea-66e9-49e5-8e81-d1ab62fd3627" width=100%\>
+
 
 ## Analisi dati
 # CALCOLO DVI (difference vegetation index)
