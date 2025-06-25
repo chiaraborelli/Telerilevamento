@@ -57,6 +57,12 @@ im.multiframe(2,1)
 plot(Helen84[[1]], col=inferno(100))
 plot(Helen25[[1]], col=inferno(100))
 
+ncell(Helen84) # numero di pixel totali=1384395
+ncell(Helen84)*nlyr(Helen84) #numero totale di valori nel raster stack=4153185
+
+ncell(Helen25) #numero pixel totali=1384395
+ncell(Helen25)*nlyr(Helen25) #numero totale di valori nel raster stack= 4153185
+
 #CALCOLO DVI (difference vegetation index)
 dvi84=Helen84[[1]] - Helen84[[2]] #NIR-red
 plot(dvi84, col=inferno(100))
@@ -128,11 +134,6 @@ d00=im.ggplot(Helen25)
 
 ncell(Helen84) # numero di pixel totali=1384395
 ncell(Helen84)*nlyr(Helen84) #4153185
-senta = aggregate(Helen84, fact=2) #mettendo il fattore uguale a 2 dimezzo il numero di pixel che avevo prima
-senta
-
-senta5 = aggregate(Helen84, fact=5) #mettendo il fattore uguale a 5 ho diminuito ancora di più la risoluzione dell'immagine
-senta5
 
 
 
