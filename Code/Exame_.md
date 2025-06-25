@@ -71,7 +71,7 @@ L’analisi consente di distinguere le aree maggiormente colpite dall’eruzione
 
 ## Analisi dati
 # Dati iniziali
-
+```r
  im.multiframe(3,2) 
 #classe 1 vegetazione
 #classe 2 disastro
@@ -81,6 +81,7 @@ Helen00c =im.classify(Helen00, num_clusters=2)
 Helen20c =im.classify(Helen20, num_clusters=2)
 Helen07c =im.classify(Helen07, num_clusters=2)
 Helen25c =im.classify(Helen25, num_clusters=2)
+```
 <img src="https://github.com/user-attachments/assets/0301c7f6-0d77-46de-9631-e263e85ce4ef" width=100%>
 
 
@@ -152,7 +153,7 @@ im.ridgeline(dvidif, scale=5, palette="magma")
 
 #calcoliamo la frequenza ovvero quante volte abbiamo lo stesso valore
 ```r
- fHelen84 = freq(Helen84c)
+fHelen84 = freq(Helen84c)
 totHelen84 = ncell(Helen84c)
 propHelen84 = fHelen84 / totHelen84
 percHelen84 = propHelen84 * 100
