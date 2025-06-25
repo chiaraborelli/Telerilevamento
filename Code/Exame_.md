@@ -1,13 +1,13 @@
-# L'eruzione del Mount Saint Helen e l'evoluzione del paesaggio
-Il progetto presenta un’analisi dettagliata dell’evoluzione di un ambiente vulcanico in seguito a un’eruzione. Le immagini satellitari, ottenute tramite Google Earth, riguardano il vulcano Mount St. Helens, situato nello stato di Washington, USA, e documentano le conseguenze della sua più violenta eruzione, avvenuta il 18 maggio 1980.
-Si tratta di una delle eruzioni più distruttive della storia moderna, caratterizzata dal collasso strutturale del fianco nord del vulcano, che ha generato un cratere largo circa 400 metri. Il cedimento ha innescato una massiccia frana e la formazione di una nube di cenere che si è propagata a una velocità di circa 100 km/h. L’evento più significativo è stato il cosiddetto blast laterale, un'esplosione orizzontale che ha devastato l’area circostante, abbattendo interamente la vegetazione e sradicando migliaia di alberi lungo il suo percorso.
+# The eruption of Mount Saint Helen and the vegetation's evolution
+The project show a detailed analisys of the vegetation's evolution of a volcanic environmet after a great eruption. The satellite images, obtained via google earth, concearn Mount St. Helens strato volcano, located in the state of Washington, USA, and document the consequences of its most violent eruption, which occurred on May 18, 1980. Mount St. Helens is the youngest and most frequently active of all of the volcanoes in the Cascade Range of the northwestern United States.
+It is one of the most destructive eruptions in the modern history, characterized by the structural collapse of the volcano's northern flank, which create a crater about 400 metres wide. The collapse triggered a massive landslide and the formation of an ash cloud that spread with at a speed of about 100 km/h. The most significant event, was the so-called lateral blast, a horizontal explotion that devastating the surrounding area, completely spreading all vegetation and uprooting thousand of trees along the path over 230 square miles (600 square kilometers).
 
-Di seguito sono illustrate a sinistra l'immagine satellitare ricavata nel 1979 prima dell'eruzione (composizione a falsi colori ad infrarossi), a destra l'immagine satellitare ricavata nel 1984 a seguito dell'eruzione. 
+Below, on the left is the satellite image taken in 1979 before the eruption (the older images are false-color because earlier Landsat satellites could not “see” blue light), where vegetation is red, bare rock and volcanic debris are gray, and clear water is dark blue. The 1979 view (top) shows the snow-covered summit of the perfectly shaped stratovolcano, and the mixture of forest types surrounding the mountain. To the right the satellite image taken in 1984 after the eruption of 1980. 
 <img src="https://github.com/user-attachments/assets/7a3cf839-a8c5-47f6-85cb-51011523ec82" width=100%> 
 
-## Raccolta dati
+## Data colection
 
-I dati sono stati ricavati da google earth
+The data were obtained from Google Earth and (earth observatory nasa) [https://earthobservatory.nasa.gov/]
 
 Library utilizzati:
 ```r
@@ -18,10 +18,9 @@ library(devtools)
 library(ggplot2)
 library(RStoolbox)
 ```
-Sono sei le foto che sono state ricavate e che risalgono dal 1984 fino al giorno d'oggi. Il confronto tra le immagini permette di osservare, in meno di ciquant'anni, i progressivi cambiamenti della vegetazione circostante e il ripristino, quindi, dell'area. 
+There are six photos that were obtained, dating from 1984 up to the present day. The comparison between the images allows us to observe, in less than fifty years, the gradual changes in the surrounding vegetation and the restoration of the area.
 ```r
-setwd("C:/Users/chiar/Desktop/UNIBO/Magistrale/Telerilevamento/Esame foto") #Sono 6 le foto ricavate, che mostrano il reintegro
-#del paesaggio a seguito dell'eruzione
+setwd("C:/Users/chiar/Desktop/UNIBO/Magistrale/Telerilevamento/Esame foto") 
 Helen84 = rast("Mt. St. Helen 84.jpg")
 plot(Helen84)
 Helen84=flip(Helen84)
@@ -57,7 +56,7 @@ plot(Helen25)
 Helen25=flip(Helen25)
 plot(Helen25)
 ```
-Di tutte le immagini è stata fatta una composizione a falsi colori con  R=3, G=1 e B=2
+A false-color composite was made for all the images using R=3, G=1, and B=2.
 ```r
 
 im.multiframe(3,2)
@@ -68,16 +67,16 @@ im.plotRGB(Helen07, r=3, g=1, b=2)
 im.plotRGB(Helen20, r=3, g=1, b=2)
 im.plotRGB(Helen25, r=3, g=1, b=2)
 ```
-L’analisi consente di distinguere le aree maggiormente colpite dall’eruzione, evidenziate con colori freddi, da quelle in cui la vegetazione è presente. Si osserva che i tempi di ripristino variano in base alla tipologia di evento: nel quadrante nord-occidentale, l’area interessata dal collasso di settore ha mostrato un recupero più rapido rispetto al versante orientale, dove si è generato un lahar. La mancata rigenerazione del letto del lahar può essere spiegata dalla presenza di intense precipitazioni che, seguendo il percorso del flusso, hanno favorito il deflusso dell’acqua piovana, contribuendo alla formazione di un corso d’acqua temporaneo:
+The analysis allow us to distinguish the areas most affected by the eruption highlighted with cool colors, from those where vegetation is present. It is observed the recovery times vary depending of the type of event: in the northwest quadrant, the area affected by the sector collapse showed a faster recovery compared to the eastern slope, where a lahar occured. The lack of the regeneration of the lahar bed can be explained by the presence of the intence rainfalls which, following the flow path, favored the ranoff of rainwater, contributing to the formation of a temporary watercourse:
 <img src="https://github.com/user-attachments/assets/a47a26ea-66e9-49e5-8e81-d1ab62fd3627" width=100%\>
 
 
-## Analisi dati
-# Dati iniziali
+## Data analysis
+# Inizial data
 ```r
  im.multiframe(3,2) 
-#classe 1 vegetazione
-#classe 2 disastro
+#classe 1 vegetazion
+#classe 2 soil(eruption's disaster)
 Helen84c =im.classify(Helen84, num_clusters=2)
 Helen16c =im.classify(Helen16, num_clusters=2)
 Helen00c =im.classify(Helen00, num_clusters=2)
@@ -88,26 +87,26 @@ Helen25c =im.classify(Helen25, num_clusters=2)
 <img src="https://github.com/user-attachments/assets/0301c7f6-0d77-46de-9631-e263e85ce4ef" width=100%>
 
 
-Immagine satellitare del 1984:
+Satellite image of 1984:
 ```r
-# Numero totale dei pixel
+# Total pixels
 ncell(Helen84)
-#outout=1384395
+#output=1384395
 
-#Calcolo del numero totale di valori nel raster stack
+#Calculation of the total number of the raster stack's values
 ncell(Helen84)*nlyr(Helen84)
 #output=4153185
 plot(Helen84)
 ```
 <img src="https://github.com/user-attachments/assets/6c4cdcd3-779b-4d1c-b9d2-0428c34adb6d" width=100%\>
 
-Immagine satellitare del 2025:
+Satellite image of 2025:
 ```r
 # Numero totale dei pixel
 ncell(Helen825)
 #output=1384395
 
-#Calcolo del numero totale di valori nel raster stack
+#Calculation of the total number of the raster stack's values
 ncell(Helen25)*nlyr(Helen25)
 #output=4153185
 Plot(Helen25)
@@ -115,8 +114,8 @@ Plot(Helen25)
 <img src="https://github.com/user-attachments/assets/eec0017f-f0b7-476b-aaae-790e86eb3823" width=100%\>
 
 
-# CALCOLO DVI (difference vegetation index)
-Attraverso il DVI è possibile conoscere la presenza e la densità di vegetazione, si tratta di un confronto base tra vegetazione e suolo.
+# CALCULATION DVI (difference vegetation index)
+Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil.
 ```r
 dvi84=Helen84[[1]] - Helen84[[2]] #NIR-red
 plot(dvi84, col=inferno(100))
@@ -124,11 +123,11 @@ plot(dvi84, col=inferno(100))
 dvi25=Helen25[[1]] - Helen25[[2]] #NIR-red
 plot(dvi25, col=inferno(100))
 ```
-Risultato:
+Output:
 <img src="https://github.com/user-attachments/assets/37180bfe-a59f-4c0c-ab74-a7faa0c1e72e" width=100%\>
 
 
-# CALCOLO NDVI, Normalized Difference Vegetation Index 
+# CALCULATION NDVI, Normalized Difference Vegetation Index 
 ```r
 ndvi84 = (Helen84[[1]] - Helen84[[2]]) / (Helen84[[1]] + Helen84[[2]])
 ndvi84 = clamp(ndvi84, -1, 1)
@@ -138,23 +137,24 @@ im.multiframe(2,1)
 plot(ndvi84, col = rev(inferno(100)), main = "NDVI 1984", type = "continuous")
 plot(ndvi25, col = rev(inferno(100)), main = "NDVI 2025", type = "continuous")
 ```
-Si tratta di un calcolo utile per monitorare la salute della vegetazione e i cambiamenti nel tempo. Le immagini sottostanti permettono di individuare alcuni poligoni attorno al vulcano — visibili anche nell'immagine a DVI — che corrispondono ad aree caratterizzate da scarsa vegetazione. Durante l’eruzione, la forza delle esplosioni ha generato un’onda d’urto talmente intensa da sradicare gli alberi, che sono poi crollati seguendo la direzione del vento.
+It is a usefull calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits.
 <img src ="https://github.com/user-attachments/assets/4a93aef2-f635-45f5-8d81-c1cc61ce3a38" width=100%> 
-# CALCOLO DVIdif
-differenza tra i valori dvi dell'immagine dell'84 e del 25. Questa nuova immagine mostra dove e quanto la vegetazione è cambiata nel tempo. I valori positivi indicano dove la vegetazione è aumentata nel tempo, mentre valori negativi indicano dove la vegetazione non è aumentata.
+
+# CALCULATION DVIdif
+Difference between the DVI values of the 1984 and 2025 images. This new image shows where and how much the vegetation has changed over time. Positive values indicate areas where vegetation has increased over time, while negative values indicate areas where vegetation has not increased.
 ```r
  dvidif = dvi25 - dvi84
 plot(dvidif, col = inferno (100))
 ```
 <img src="https://github.com/user-attachments/assets/13a07dcb-a16f-435d-a446-10ec09d5f39b" width=100%>
 
-In base all'immagine precedente è possibile ottenere un grafico che mostra la distribuzione dei valori differenziali tra le due immagini
+Based on the previous image, it is possible to generate a graph showing the distribution of differential values between the two images.
 ```r
 im.ridgeline(dvidif, scale=5, palette="magma")
 ```
 <img src="https://github.com/user-attachments/assets/6c65686b-f95c-47da-b5fc-6c2e12b4d78d" width=100%>
 
-##Conclusioni
+## CONCLUSION 
 
 ```r
 fHelen84 = freq(Helen84c)
@@ -171,7 +171,7 @@ percHelen25 = propHelen25 * 100
 #1 = forest 84 %
 #2 = disastro 16 %
 ```
-Delle immagini satellitari, è possibile determinare la percentuale di vegetazione presente e di area colpita dall'eruzione. In base al calcolo eseguito sottoindicato è stata identificata una percentuale di vegetazione iniziale post eruzione del 69% che nel corso di quarantuno anni è aumentata del 15%, segno di un recupero significativo dell'ecosistema circostante. 
+From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 69% was identified, which increased by 15% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, his nutrient is nitrogen that can be catch from the air reather than from the soil. 
 
 ```r
 class = c("forest", "human")  #uso il c perché sono due elementi dello stesso vettore
