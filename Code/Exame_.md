@@ -149,3 +149,20 @@ im.ridgeline(dvidif, scale=5, palette="magma")
 ```
 <img src="https://github.com/user-attachments/assets/6c65686b-f95c-47da-b5fc-6c2e12b4d78d" width=100%>
 
+
+#calcoliamo la frequenza ovvero quante volte abbiamo lo stesso valore
+```r
+ fHelen84 = freq(Helen84c)
+totHelen84 = ncell(Helen84c)
+propHelen84 = fHelen84 / totHelen84
+percHelen84 = propHelen84 * 100
+#1 = forest 69 %
+#2 = disastro 31 %
+
+fHelen25 = freq(Helen25c)
+totHelen25 = ncell(Helen25c)
+propHelen25 = fHelen25 / totHelen25
+percHelen25 = propHelen25 * 100
+#1 = forest 84 %
+#2 = disastro 16 %
+```
