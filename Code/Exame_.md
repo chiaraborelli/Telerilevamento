@@ -151,7 +151,7 @@ im.ridgeline(dvidif, scale=5, palette="magma")
 <img src="https://github.com/user-attachments/assets/6c65686b-f95c-47da-b5fc-6c2e12b4d78d" width=100%>
 
 
-#calcoliamo la frequenza ovvero quante volte abbiamo lo stesso valore
+Delle immagini satellitari, è possibile determinare la percentuale di vegetazione presente e di area colpita dall'eruzione. In base al calcolo eseguito sottoindicato è stata identificata una percentuale di vegetazione iniziale post eruzione del 69% che nel corso di quarantuno anni è aumentata del 15%, segno di un recupero significativo dell'ecosistema circostante. 
 ```r
 fHelen84 = freq(Helen84c)
 totHelen84 = ncell(Helen84c)
