@@ -2,7 +2,7 @@
 Il progetto presenta un’analisi dettagliata dell’evoluzione di un ambiente vulcanico in seguito a un’eruzione. Le immagini satellitari, ottenute tramite Google Earth, riguardano il vulcano Mount St. Helens, situato nello stato di Washington, USA, e documentano le conseguenze della sua più violenta eruzione, avvenuta il 18 maggio 1980.
 Si tratta di una delle eruzioni più distruttive della storia moderna, caratterizzata dal collasso strutturale del fianco nord del vulcano, che ha generato un cratere largo circa 400 metri. Il cedimento ha innescato una massiccia frana e la formazione di una nube di cenere che si è propagata a una velocità di circa 100 km/h. L’evento più significativo è stato il cosiddetto blast laterale, un'esplosione orizzontale che ha devastato l’area circostante, abbattendo interamente la vegetazione e sradicando migliaia di alberi lungo il suo percorso.
 
-Di seguito sono illustrate a sinistra l'immagine satellitare ricavata nel 1979 prima dell'eruzione, a destra l'immagine satellitare ricavata nel 1984 a seguito dell'eruzione. 
+Di seguito sono illustrate a sinistra l'immagine satellitare ricavata nel 1979 prima dell'eruzione (composizione a falsi colori ad infrarossi), a destra l'immagine satellitare ricavata nel 1984 a seguito dell'eruzione. 
 <img src="https://github.com/user-attachments/assets/7a3cf839-a8c5-47f6-85cb-51011523ec82" width=100%> 
 
 ## Raccolta dati
@@ -114,6 +114,7 @@ Plot(Helen25)
 ```
 <img src="https://github.com/user-attachments/assets/eec0017f-f0b7-476b-aaae-790e86eb3823" width=100%\>
 
+
 # CALCOLO DVI (difference vegetation index)
 Attraverso il DVI è possibile conoscere la presenza e la densità di vegetazione, si tratta di un confronto base tra vegetazione e suolo.
 ```r
@@ -153,8 +154,8 @@ im.ridgeline(dvidif, scale=5, palette="magma")
 ```
 <img src="https://github.com/user-attachments/assets/6c65686b-f95c-47da-b5fc-6c2e12b4d78d" width=100%>
 
+##Conclusioni
 
-Delle immagini satellitari, è possibile determinare la percentuale di vegetazione presente e di area colpita dall'eruzione. In base al calcolo eseguito sottoindicato è stata identificata una percentuale di vegetazione iniziale post eruzione del 69% che nel corso di quarantuno anni è aumentata del 15%, segno di un recupero significativo dell'ecosistema circostante. 
 ```r
 fHelen84 = freq(Helen84c)
 totHelen84 = ncell(Helen84c)
@@ -170,3 +171,18 @@ percHelen25 = propHelen25 * 100
 #1 = forest 84 %
 #2 = disastro 16 %
 ```
+Delle immagini satellitari, è possibile determinare la percentuale di vegetazione presente e di area colpita dall'eruzione. In base al calcolo eseguito sottoindicato è stata identificata una percentuale di vegetazione iniziale post eruzione del 69% che nel corso di quarantuno anni è aumentata del 15%, segno di un recupero significativo dell'ecosistema circostante. 
+
+```r
+class = c("forest", "human")  #uso il c perché sono due elementi dello stesso vettore
+y84 = c(69, 31) #y significa year
+y25 = c(84, 16) 
+tabout = data.frame(class, y84, y25)
+d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #così sono sicura che avrò due assi uguali
+d2 = ggplot(tabout, aes(x=class, y = y25, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+d0=im.ggplot(Helen84)
+d00=im.ggplot(Helen25)
+```
+
+<img src="https://github.com/user-attachments/assets/ee15cfa1-ab53-4303-acda-77ed7c2275bd" width=100%>
+<img src="https://github.com/user-attachments/assets/0241df70-7e9b-42d6-8d23-db9d06e9bc2f" width=100%>
