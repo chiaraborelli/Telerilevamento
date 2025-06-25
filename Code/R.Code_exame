@@ -2,13 +2,12 @@ library(imageRy) #beloved packages developed
 library(terra)
 library(viridis)
 library(devtools)
-library(cblindplot)Comincia a scrivere
 library(ggplot2)
 library(RStoolbox)
 
 setwd("C:/Users/chiar/Desktop/UNIBO/Magistrale/Telerilevamento/Esame foto") #Sono 6 le foto ricavate, che msotrano il reintegro del paesaggio a seguito dell'eruzione
 scaturita dal Mount Saint Helen nel 1980, qui di seguito vengono aperte su R.
-Helen84 = im.import("C:/Users/chiar/Desktop/UNIBO/Magistrale/Telerilevamento/Esame foto")
+#plotto tutte le immagini satellitari in esame
 Helen84 = rast("Mt. St. Helen 84.jpg")
 plot(Helen84)
 Helen84=flip(Helen84)
@@ -88,7 +87,7 @@ ndvi84 = clamp(ndvi84, -1, 1)
 ndvi25 = (Helen25[[1]] - Helen25[[2]]) / (Helen25[[1]] + Helen25[[2]])
 ndvi25 = clamp(ndvi25, -1, 1)
 
- im.multiframe(2,1)
+ im.multiframe(2,1) 
 plot(ndvi84, col = rev(inferno(100)), main = "NDVI 1984", type = "continuous")
 plot(ndvi25, col = rev(inferno(100)), main = "NDVI 2025", type = "continuous")
 
@@ -99,13 +98,6 @@ dvidif = dvi25 - dvi84
 plot(dvidif, col = inferno (100))
 
 im.ridgeline(dvidif, scale=5, palette="magma")
-
-
-im.multiframe(2,1)
-Helen84cs= subst(Helen84c, c(3,1,2), c("c1_low", "c2_medium", "c3_high")) #sostituisco i valori 1 2 3 con low mwdium e high
-Helen25cs= subst(Helen25c, c(3,1,2), c("c1_low", "c2_medium", "c3_high"))
-plot(Helen84cs)
-plot(Helen25cs)
 
 
 #calcoliamo la frequenza ovvero quante volte abbiamo lo stesso valore
@@ -135,8 +127,7 @@ d0=im.ggplot(Helen84)
 d00=im.ggplot(Helen25)
 
 
-ncell(Helen84) # numero di pixel totali=1384395
-ncell(Helen84)*nlyr(Helen84) #4153185
+
 
 
 
