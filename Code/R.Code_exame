@@ -109,10 +109,10 @@ percHelen84 = propHelen84 * 100
 #1 = forest 69 %
 #2 = disastro 31 %
 
-fHelen25 = freq(Helen25c)
-totHelen25 = ncell(Helen25c)
-propHelen25 = fHelen25 / totHelen25
-percHelen25 = propHelen25 * 100
+fHelen25 = freq(Helen25c) # Frequenza dei pixel per classe 
+totHelen25 = ncell(Helen25c) # Numero totale di pixel
+propHelen25 = fHelen25 / totHelen25 #proporzione (frequenza relativa)
+percHelen25 = propHelen25 * 100 #percentuale per ogni classe
 #1 = forest 84 %
 #2 = disastro 16 %
 #creaiamo un data.frame (ovvero una tabella)
