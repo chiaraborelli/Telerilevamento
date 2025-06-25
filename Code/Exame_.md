@@ -1,13 +1,13 @@
 # The eruption of Mount Saint Helen and the vegetation's evolution
-The project show a detailed analisys of the vegetation's evolution of a volcanic environmet after a great eruption. The satellite images, obtained via google earth, concearn Mount St. Helens strato volcano, located in the state of Washington, USA, and document the consequences of its most violent eruption, which occurred on May 18, 1980. Mount St. Helens is the youngest and most frequently active of all of the volcanoes in the Cascade Range of the northwestern United States.
-It is one of the most destructive eruptions in the modern history, characterized by the structural collapse of the volcano's northern flank, which create a crater about 400 metres wide. The collapse triggered a massive landslide and the formation of an ash cloud that spread with at a speed of about 100 km/h. The most significant event, was the so-called lateral blast, a horizontal explotion that devastating the surrounding area, completely spreading all vegetation and uprooting thousand of trees along the path over 230 square miles (600 square kilometers).
+The project show a detailed analysis of the vegetation's evolution of a volcanic environment after a great eruption. The satellite images, obtained via google earth, concern Mount St. Helens strato volcano, located in the state of Washington, USA, and document the consequences of its most violent eruption, which occurred on May 18, 1980. Mount St. Helens is the youngest and most frequently active of all of the volcanoes in the Cascade Range of the northwestern United States.
+It is one of the most destructive eruptions in the modern history, characterized by the structural collapse of the volcano's northern flank, which create a crater about 400 metres wide. The collapse triggered a massive landslide and the formation of an ash cloud that spread with at a speed of about 100 km/h. The most significant event, was the so-called lateral blast, a horizontal explosion that devastated the surrounding area, completely spreading all vegetation and uprooting thousands of trees along the path over 230 square miles (600 square kilometers).
 
 Below, on the left is the satellite image taken in 1979 before the eruption (the older images are false-color because earlier Landsat satellites could not “see” blue light), where vegetation is red, bare rock and volcanic debris are gray, and clear water is dark blue. The 1979 view (top) shows the snow-covered summit of the perfectly shaped stratovolcano, and the mixture of forest types surrounding the mountain. To the right the satellite image taken in 1984 after the eruption of 1980. 
 <img src="https://github.com/user-attachments/assets/7a3cf839-a8c5-47f6-85cb-51011523ec82" width=100%> 
 
-## Data colection
+## Data collection
 
-The data were obtained from Google Earth and (earth observatory nasa) [https://earthobservatory.nasa.gov/]
+The data were obtained from Google Earth and [earth observatory nasa] (https://earthobservatory.nasa.gov/)
 
 Library utilizzati:
 ```r
@@ -67,7 +67,7 @@ im.plotRGB(Helen07, r=3, g=1, b=2)
 im.plotRGB(Helen20, r=3, g=1, b=2)
 im.plotRGB(Helen25, r=3, g=1, b=2)
 ```
-The analysis allow us to distinguish the areas most affected by the eruption highlighted with cool colors, from those where vegetation is present. It is observed the recovery times vary depending of the type of event: in the northwest quadrant, the area affected by the sector collapse showed a faster recovery compared to the eastern slope, where a lahar occured. The lack of the regeneration of the lahar bed can be explained by the presence of the intence rainfalls which, following the flow path, favored the ranoff of rainwater, contributing to the formation of a temporary watercourse:
+The analysis allow us to distinguish the areas most affected by the eruption highlighted with cool colors, from those where vegetation is present. It is observed the recovery times vary depending of the type of event: in the northwest quadrant, the area affected by the sector collapse showed a faster recovery compared to the eastern slope, where a lahar occured. The lack of the regeneration of the lahar bed can be explained by the presence of the intense rainfalls which, following the flow path, favored the runoff of rainwater, contributing to the formation of a temporary watercourse:
 <img src="https://github.com/user-attachments/assets/a47a26ea-66e9-49e5-8e81-d1ab62fd3627" width=100%\>
 
 
@@ -137,7 +137,7 @@ im.multiframe(2,1)
 plot(ndvi84, col = rev(inferno(100)), main = "NDVI 1984", type = "continuous")
 plot(ndvi25, col = rev(inferno(100)), main = "NDVI 2025", type = "continuous")
 ```
-It is a usefull calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits.
+It is a useful calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits.
 <img src ="https://github.com/user-attachments/assets/4a93aef2-f635-45f5-8d81-c1cc61ce3a38" width=100%> 
 
 # CALCULATION DVIdif
@@ -171,7 +171,7 @@ percHelen25 = propHelen25 * 100
 #1 = forest 84 %
 #2 = disastro 16 %
 ```
-From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 69% was identified, which increased by 15% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, his nutrient is nitrogen that can be catch from the air reather than from the soil. 
+From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 69% was identified, which increased by 15% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, his nutrient is nitrogen that can be catch from the air rather than from the soil. 
 
 ```r
 class = c("forest", "human")  #uso il c perché sono due elementi dello stesso vettore
