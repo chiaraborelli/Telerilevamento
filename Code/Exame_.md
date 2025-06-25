@@ -1,6 +1,10 @@
 # L'eruzione del Mount Saint Helen e l'evoluzione del paesaggio
 Il progetto presenta un’analisi dettagliata dell’evoluzione di un ambiente vulcanico in seguito a un’eruzione. Le immagini satellitari, ottenute tramite Google Earth, riguardano il vulcano Mount St. Helens, situato nello stato di Washington, USA, e documentano le conseguenze della sua più violenta eruzione, avvenuta il 18 maggio 1980.
 Si tratta di una delle eruzioni più distruttive della storia moderna, caratterizzata dal collasso strutturale del fianco nord del vulcano, che ha generato un cratere largo circa 400 metri. Il cedimento ha innescato una massiccia frana e la formazione di una nube di cenere che si è propagata a una velocità di circa 100 km/h. L’evento più significativo è stato il cosiddetto blast laterale, un'esplosione orizzontale che ha devastato l’area circostante, abbattendo interamente la vegetazione e sradicando migliaia di alberi lungo il suo percorso.
+
+Di seguito sono illustrate a sinistra l'immagine satellitare ricavata nel 1979 prima dell'eruzione, a destra l'immagine satellitare ricavata nel 1984 a seguito dell'eruzione. 
+<img src="https://github.com/user-attachments/assets/7a3cf839-a8c5-47f6-85cb-51011523ec82" width=100%> 
+
 ## Raccolta dati
 
 I dati sono stati ricavati da google earth
@@ -11,7 +15,6 @@ library(imageRy)
 library(terra)
 library(viridis)
 library(devtools)
-library(cblindplot)
 library(ggplot2)
 library(RStoolbox)
 ```
