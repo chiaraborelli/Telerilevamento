@@ -93,18 +93,18 @@ plot(dvi25, col=(inferno(100)), main = "DVI 2025")
 #CALCULATION NDVI,Normalized Difference Vegetation Index, is a valuable tool for assessing the health and vitality of vegetation
 ndvi79 = (Helen79[[1]] - Helen79[[2]]) / (Helen79[[1]] + Helen79[[2]])
 ndvi79 = clamp(ndvi79)
-ndvi84 = (Helen84[[2]] - Helen84[[1]]) / (Helen84[[1]] + Helen84[[2]])
+ndvi84 = (Helen84[[1]] - Helen84[[2]]) / (Helen84[[1]] + Helen84[[2]])
 ndvi84 = clamp(ndvi84)
-ndvi00 = (Helen00[[2]] - Helen00[[1]]) / (Helen00[[1]] + Helen00[[2]])
-ndvi00 = clamp(ndvi00)
-ndvi16 = (Helen16[[2]] - Helen16[[1]]) / (Helen16[[1]] + Helen16[[2]])
-ndvi16 = clamp(ndvi16)
+ndvi17 = (Helen17[[1]] - Helen00[[2]]) / (Helen00[[1]] + Helen00[[2]])
+ndvi17 = clamp(ndvi17)
+ndvi25 = (Helen25[[1]] - Helen25[[2]]) / (Helen25[[1]] + Helen25[[2]])
+ndvi25 = clamp(ndvi25)
 
  im.multiframe(2,2) 
 plot(ndvi79, col = (inferno(100)), main = "NDVI 1979", type = "continuous")
 plot(ndvi84, col = (inferno(100)), main = "NDVI 1984", type = "continuous")
-plot(ndvi00, col = (inferno(100)), main = "NDVI 2000", type = "continuous")
-plot(ndvi16, col = (inferno(100)), main = "NDVI 2016", type = "continuous")
+plot(ndvi17, col = (inferno(100)), main = "NDVI 2017", type = "continuous")
+plot(ndvi25, col = (inferno(100)), main = "NDVI 2025", type = "continuous")
 
 
 
@@ -155,13 +155,7 @@ d=im.ggplot(Helen79)
 d0=im.ggplot(Helen84)
 d00=im.ggplot(Helen25)
 
-im.multiframe(2,2)
-plot(Helen79a)
-plot(Helen25a)
-dvi79=Helen79a[[1]] - Helen79a[[2]] #NIR-red
-plot(dvi79, col=inferno(100))
-dvi25=Helen25[[1]] - Helen25[[2]] #NIR-red
-plot(dvi25, col=inferno(100))
+
 
 
 
