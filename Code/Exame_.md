@@ -3,7 +3,7 @@ The project show a detailed analysis of the vegetation's evolution of a volcanic
 It is one of the most destructive eruptions in the modern history, characterized by the structural collapse of the volcano's northern flank, which create a crater about 400 metres wide. The collapse triggered a massive landslide and the formation of an ash cloud that spread with at a speed of about 100 km/h. The most significant event, was the so-called lateral blast, a horizontal explosion that devastated the surrounding area, completely spreading all vegetation and uprooting thousands of trees along the path over 230 square miles (600 square kilometers).
 
 Below, on the left is the satellite image taken in 1979 before the eruption (the older images are false-color because earlier Landsat satellites could not “see” blue light), where vegetation is red, bare rock and volcanic debris are gray, and clear water is dark blue. The 1979 view (top) shows the snow-covered summit of the perfectly shaped stratovolcano, and the mixture of forest types surrounding the mountain. To the right the satellite image taken in 1984 after the eruption of 1980. 
-<img src="https://github.com/user-attachments/assets/7a3cf839-a8c5-47f6-85cb-51011523ec82" width=100%> 
+<img src="https://github.com/user-attachments/assets/06f8b92a-525b-4827-99df-b6dee6b4a62a" width=100%> 
 
 ## Data collection
 
@@ -128,28 +128,28 @@ dvi25=Helen16[[1]] - Helen25[[2]] #NIR-red
 plot(dvi25, col=(inferno(100)), main = "DVI 2025")
 ```
 Output:
-<img src="https://github.com/user-attachments/assets/24200a35-54a3-478b-aaab-fea948e79db2" width=100%\>
+<img src="https://github.com/user-attachments/assets/32afa5a8-d289-49ed-99dd-f2bfc99d2ca6" width=100%\>
 
 
 # CALCULATION NDVI, Normalized Difference Vegetation Index 
 ```r
 ndvi79 = (Helen79[[1]] - Helen79[[2]]) / (Helen79[[1]] + Helen79[[2]])
 ndvi79 = clamp(ndvi79)
-ndvi84 = (Helen84[[2]] - Helen84[[1]]) / (Helen84[[1]] + Helen84[[2]])
+ndvi84 = (Helen84[[1]] - Helen84[[2]]) / (Helen84[[1]] + Helen84[[2]])
 ndvi84 = clamp(ndvi84)
-ndvi00 = (Helen00[[2]] - Helen00[[1]]) / (Helen00[[1]] + Helen00[[2]])
-ndvi00 = clamp(ndvi00)
-ndvi16 = (Helen16[[2]] - Helen16[[1]]) / (Helen16[[1]] + Helen16[[2]])
-ndvi16 = clamp(ndvi16)
+ndvi17 = (Helen17[[1]] - Helen00[[2]]) / (Helen00[[1]] + Helen00[[2]])
+ndvi17 = clamp(ndvi17)
+ndvi25 = (Helen25[[1]] - Helen25[[2]]) / (Helen25[[1]] + Helen25[[2]])
+ndvi25 = clamp(ndvi25)
 
  im.multiframe(2,2) 
 plot(ndvi79, col = (inferno(100)), main = "NDVI 1979", type = "continuous")
 plot(ndvi84, col = (inferno(100)), main = "NDVI 1984", type = "continuous")
-plot(ndvi00, col = (inferno(100)), main = "NDVI 2000", type = "continuous")
-plot(ndvi16, col = (inferno(100)), main = "NDVI 2016", type = "continuous")
+plot(ndvi17, col = (inferno(100)), main = "NDVI 2017", type = "continuous")
+plot(ndvi25, col = (inferno(100)), main = "NDVI 2025", type = "continuous")
 ```
 It is a useful calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits.
-<img src ="https://github.com/user-attachments/assets/d5454b75-e963-4ebf-91c2-c16e3d9faa95" width=100%> 
+<img src ="https://github.com/user-attachments/assets/d0271203-24f3-4646-b835-44680e157ff8" width=100%> 
 
 # CALCULATION DVIdif
 Difference between the DVI values of the 1984 and 2025 images. This new image shows where and how much the vegetation has changed over time. Positive values indicate areas where vegetation has increased over time, while negative values indicate areas where vegetation has not increased.
@@ -193,15 +193,18 @@ percHelen25 = propHelen25 * 100
 From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 69% was identified, which increased by 15% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, his nutrient is nitrogen that can be catch from the air rather than from the soil. 
 
 ```r
-class = c("forest", "human")  #uso il c perché sono due elementi dello stesso vettore
-y84 = c(69, 31) #y significa year
+class = c("forest", "human")  #using c because are twe elements of the same vector 
+y79 = c(86, 14)
+y84 = c(69, 31) #y means year
 y25 = c(84, 16) 
-tabout = data.frame(class, y84, y25)
-d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #così sono sicura che avrò due assi uguali
+tabout = data.frame(class,y79 y84, y25)
+d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #ensuring we have the same axis
 d2 = ggplot(tabout, aes(x=class, y = y25, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+d3 = ggplot(tabout, aes(x=class, y = y79, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+d=im.ggplot(Helen79)
 d0=im.ggplot(Helen84)
 d00=im.ggplot(Helen25)
 ```
-
+<img src="https://github.com/user-attachments/assets/bbcdddcf-c381-4894-80d2-c8a6e186706c" width=100%>
 <img src="https://github.com/user-attachments/assets/ee15cfa1-ab53-4303-acda-77ed7c2275bd" width=100%>
 <img src="https://github.com/user-attachments/assets/0241df70-7e9b-42d6-8d23-db9d06e9bc2f" width=100%>
