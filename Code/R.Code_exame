@@ -139,7 +139,6 @@ percHelen25 = propHelen25 * 100 #percentage per class
 #1 = forest 84 %
 #2 = disastro 16 %
 
-Helen16 (17% e 82%)
 
 #creation of a data.frame (table)
 #defining columns
