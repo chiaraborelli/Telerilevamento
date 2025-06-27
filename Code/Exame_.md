@@ -103,7 +103,7 @@ plot(Helen84)
 Satellite image of 2025:
 ```r
 # Numero totale dei pixel
-ncell(Helen825)
+ncell(Helen25)
 #output=1384395
 
 #Calculation of the total number of the raster stack's values
@@ -115,30 +115,41 @@ Plot(Helen25)
 
 
 # CALCULATION DVI (difference vegetation index)
-Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil.
+o calculate the DVI index, it is necessary to use images that include the NIR band. Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil.
 ```r
+im.multiframe(2,2)
+dvi79=Helen79[[1]] - Helen79[[2]] #NIR-red
+plot(dvi79, col=(inferno(100)), main = "DVI 1979")
 dvi84=Helen84[[1]] - Helen84[[2]] #NIR-red
-plot(dvi84, col=inferno(100))
-
-dvi25=Helen25[[1]] - Helen25[[2]] #NIR-red
-plot(dvi25, col=inferno(100))
+plot(dvi84, col=(inferno(100)), main = "DVI 1984")
+dvi17=Helen17[[1]] - Helen17[[2]] #NIR-red
+plot(dvi17, col=(inferno(100)), main = "DVI 2017")
+dvi25=Helen16[[1]] - Helen25[[2]] #NIR-red
+plot(dvi25, col=(inferno(100)), main = "DVI 2025")
 ```
 Output:
-<img src="https://github.com/user-attachments/assets/37180bfe-a59f-4c0c-ab74-a7faa0c1e72e" width=100%\>
+<img src="https://github.com/user-attachments/assets/24200a35-54a3-478b-aaab-fea948e79db2" width=100%\>
 
 
 # CALCULATION NDVI, Normalized Difference Vegetation Index 
 ```r
-ndvi84 = (Helen84[[1]] - Helen84[[2]]) / (Helen84[[1]] + Helen84[[2]])
-ndvi84 = clamp(ndvi84, -1, 1)
-ndvi25 = (Helen25[[1]] - Helen25[[2]]) / (Helen25[[1]] + Helen25[[2]])
-ndvi25 = clamp(ndvi25, -1, 1)
-im.multiframe(2,1)
-plot(ndvi84, col = rev(inferno(100)), main = "NDVI 1984", type = "continuous")
-plot(ndvi25, col = rev(inferno(100)), main = "NDVI 2025", type = "continuous")
+ndvi79 = (Helen79[[1]] - Helen79[[2]]) / (Helen79[[1]] + Helen79[[2]])
+ndvi79 = clamp(ndvi79)
+ndvi84 = (Helen84[[2]] - Helen84[[1]]) / (Helen84[[1]] + Helen84[[2]])
+ndvi84 = clamp(ndvi84)
+ndvi00 = (Helen00[[2]] - Helen00[[1]]) / (Helen00[[1]] + Helen00[[2]])
+ndvi00 = clamp(ndvi00)
+ndvi16 = (Helen16[[2]] - Helen16[[1]]) / (Helen16[[1]] + Helen16[[2]])
+ndvi16 = clamp(ndvi16)
+
+ im.multiframe(2,2) 
+plot(ndvi79, col = (inferno(100)), main = "NDVI 1979", type = "continuous")
+plot(ndvi84, col = (inferno(100)), main = "NDVI 1984", type = "continuous")
+plot(ndvi00, col = (inferno(100)), main = "NDVI 2000", type = "continuous")
+plot(ndvi16, col = (inferno(100)), main = "NDVI 2016", type = "continuous")
 ```
 It is a useful calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits.
-<img src ="https://github.com/user-attachments/assets/4a93aef2-f635-45f5-8d81-c1cc61ce3a38" width=100%> 
+<img src ="https://github.com/user-attachments/assets/d5454b75-e963-4ebf-91c2-c16e3d9faa95" width=100%> 
 
 # CALCULATION DVIdif
 Difference between the DVI values of the 1984 and 2025 images. This new image shows where and how much the vegetation has changed over time. Positive values indicate areas where vegetation has increased over time, while negative values indicate areas where vegetation has not increased.
@@ -157,6 +168,14 @@ im.ridgeline(dvidif, scale=5, palette="magma")
 ## CONCLUSION 
 
 ```r
+Helen79c =im.classify(Helen79, num_clusters=2)
+fHelen79 = freq(Helen79c)
+totHelen79 = ncell(Helen79c)
+propHelen79 = fHelen79 / totHelen79
+percHelen79 = propHelen79 * 100
+#1 = forest 86 %
+#2 = disastro 14 %
+
 fHelen84 = freq(Helen84c)
 totHelen84 = ncell(Helen84c)
 propHelen84 = fHelen84 / totHelen84
