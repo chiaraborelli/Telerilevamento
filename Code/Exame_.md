@@ -7,7 +7,7 @@ Below, on the left is the satellite image taken in 1979 before the eruption (the
 
 ## Data collection
 
-The data were obtained from Google Earth and [earth observatory nasa] (https://earthobservatory.nasa.gov/)
+The data were obtained from Google Earth, [earth observatory nasa] (https://earthobservatory.nasa.gov/) and [Copernicus](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE)
 
 Library utilizzati:
 ```r
