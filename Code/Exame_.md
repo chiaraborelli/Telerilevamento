@@ -202,12 +202,12 @@ class = c("forest", "human")  #using c because are twe elements of the same vect
 y79 = c(86, 14)
 y84 = c(69, 31) #y means year
 y25 = c(84, 16) 
-tabout = data.frame(class,y79 y84, y25)
+tabout = data.frame(class, y79, y84, y25)
 d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #ensuring we have the same axis
 d2 = ggplot(tabout, aes(x=class, y = y25, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
 d3 = ggplot(tabout, aes(x=class, y = y79, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
 d=im.ggplot(Helen79)
-d0=im.ggplot(Helen84)
+d0=im.ggplot(Helen84) #The actual image 
 d00=im.ggplot(Helen25)
 ```
 <img src="https://github.com/user-attachments/assets/bbcdddcf-c381-4894-80d2-c8a6e186706c" width=100%>
