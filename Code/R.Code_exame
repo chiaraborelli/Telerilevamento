@@ -43,6 +43,7 @@ plot(Helen25)
 Helen25=flip(Helen25)
 plot(Helen25)
 #In less than fifty years have occoured visible changes in teh surrounding vegetation 
+#Display RGB composites (bands 3-1-2) of all images in a 3x2 layout for visual comparison over time
 im.multiframe(3,2)
 im.plotRGB(Helen84, r=3, g=1, b=2)
 im.plotRGB(Helen16, r=3, g=1, b=2)
@@ -53,6 +54,7 @@ im.plotRGB(Helen25, r=3, g=1, b=2)
 dev.off()
 
  im.multiframe(3,2) 
+# Apply unsupervised classification (2 clusters) to each image to distinguish between vegetation and soil
 #classe 1 vegetazion
 #classe 2 soil(because of the disaster)
 Helen84c =im.classify(Helen84, num_clusters=2)
@@ -84,6 +86,8 @@ Helen17=flip(Helen17)
 Helen25 = rast("Helen25FC.jpg")
 Helen25=flip(Helen25)
 #CALCULATION DVI (difference vegetation index)
+# Calculate and visualize DVI (Difference Vegetation Index = NIR - Red) for four years in a 2x2 layout
+# DVI highlights vegetation presence and change over time using the difference between NIR and Red bands
 im.multiframe(2,2)
 dvi79=Helen79[[1]] - Helen79[[2]] #NIR-red
 plot(dvi79, col=(inferno(100)), main = "DVI 1979")
@@ -119,7 +123,7 @@ plot(dvidif, col = inferno (100))
 im.ridgeline(dvidif, scale=5, palette="magma")
 
 
-#calculation of the frequencies,  la frequenza ovvero number of times we have the same value
+#calculation of the frequencies, number of times we have the same value, proportion, and percentage of total area
 
 Helen79c =im.classify(Helen79, num_clusters=2)
 fHelen79 = freq(Helen79c)
