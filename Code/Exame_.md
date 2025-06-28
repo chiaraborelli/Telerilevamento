@@ -7,7 +7,7 @@ Below, on the left is the satellite image taken in 1979 before the eruption (the
 
 ## Data collection
 
-The data were obtained from Google Earth, [earth observatory nasa] (https://earthobservatory.nasa.gov/) and [Copernicus](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE)
+The data were obtained from Google Earth, [earth observatory nasa](https://earthobservatory.nasa.gov/) and [Copernicus](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE)
 
 Library utilizzati:
 ```r
@@ -67,12 +67,17 @@ im.plotRGB(Helen07, r=3, g=1, b=2)
 im.plotRGB(Helen20, r=3, g=1, b=2)
 im.plotRGB(Helen25, r=3, g=1, b=2)
 ```
-The analysis allow us to distinguish the areas most affected by the eruption highlighted with cool colors, from those where vegetation is present. It is observed the recovery times vary depending of the type of event: in the northwest quadrant, the area affected by the sector collapse showed a faster recovery compared to the eastern slope, where a lahar occured. The lack of the regeneration of the lahar bed can be explained by the presence of the intense rainfalls which, following the flow path, favored the runoff of rainwater, contributing to the formation of a temporary watercourse:
+The analysis allow us to distinguish the areas most affected by the eruption highlighted with cool colors, from those where vegetation is present. It is observed the recovery times vary depending of the type of event: 
+- The northwest quadrant, which has undergone the extreme heat of the pyroclastic flows sterilized the Pumice Plain of the crater were nothing survived, showed a faster recovery;
+- The eastern slope, where a lahar occured, had a really slow recovery. The lack of the regeneration of the lahar bed can be explained by the presence of the intense rainfalls which, following the flow path, favored the runoff of rainwater, contributing to the formation of a temporary watercourse.
+
+Generally the rate of the vegetation development :
 <img src="https://github.com/user-attachments/assets/a47a26ea-66e9-49e5-8e81-d1ab62fd3627" width=100%\>
 
 
 ## Data analysis
 # Inizial data
+To begin with, two classes are created — vegetation and soil — to observe the areas most and least affected by the eruption, more effectively than with the false color RGB image. No more than two classes per feature are classified, in order to have a simple yet still clear and understandable map.
 ```r
  im.multiframe(3,2) 
 #classe 1 vegetazion
@@ -115,7 +120,7 @@ Plot(Helen25)
 
 
 # CALCULATION DVI (difference vegetation index)
-o calculate the DVI index, it is necessary to use images that include the NIR band. Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil.
+Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil more effective than the . To calculate the DVI index, it is necessary to use images that include the NIR band. The latest images were taken from Google Earth, which does not provide the NIR band. Therefore, from now on, we are going to use other images taken from the Copernicus website. 
 ```r
 im.multiframe(2,2)
 dvi79=Helen79[[1]] - Helen79[[2]] #NIR-red
@@ -152,7 +157,7 @@ It is a useful calculation to monitoring the vegetation health and changes over 
 <img src ="https://github.com/user-attachments/assets/d0271203-24f3-4646-b835-44680e157ff8" width=100%> 
 
 # CALCULATION DVIdif
-Difference between the DVI values of the 1984 and 2025 images. This new image shows where and how much the vegetation has changed over time. Positive values indicate areas where vegetation has increased over time, while negative values indicate areas where vegetation has not increased.
+Difference between the DVI values of the 1984 and 2025 images. This new image shows the intensity of where and how much the vegetation has changed over time. Positive values indicate areas where vegetation has increased over time, while negative values indicate areas where vegetation has not increased which match the pockets of soil we mentioned earlier. 
 ```r
  dvidif = dvi25 - dvi84
 plot(dvidif, col = inferno (100))
@@ -163,7 +168,7 @@ Based on the previous image, it is possible to generate a graph showing the dist
 ```r
 im.ridgeline(dvidif, scale=5, palette="magma")
 ```
-<img src="https://github.com/user-attachments/assets/6c65686b-f95c-47da-b5fc-6c2e12b4d78d" width=100%>
+<img src="https://github.com/user-attachments/assets/11eeb988-53db-444b-a78b-04399665bf06" width=100%>
 
 ## CONCLUSION 
 
@@ -190,7 +195,7 @@ percHelen25 = propHelen25 * 100
 #1 = forest 84 %
 #2 = disastro 16 %
 ```
-From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 69% was identified, which increased by 15% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, his nutrient is nitrogen that can be catch from the air rather than from the soil. 
+From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 69% was identified, which increased by 15% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, the one that helped to increased the vegetation coverage, his nutrient is nitrogen that can be catch from the air rather than from the soil. Any type of eruption leads to the partial or total destruction of life surrounding the volcanic edifice. What surprises researchers is the ability of certain plants to survive in harsh environmental conditions, and thus contribute to the gradual reintegration of the ecosystem over time.
 
 ```r
 class = c("forest", "human")  #using c because are twe elements of the same vector 
