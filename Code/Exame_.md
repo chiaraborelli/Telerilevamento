@@ -120,7 +120,7 @@ Plot(Helen25)
 
 
 # CALCULATION DVI (difference vegetation index)
-Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil more effective than the . To calculate the DVI index, it is necessary to use images that include the NIR band. The latest images were taken from Google Earth, which does not provide the NIR band. Therefore, from now on, we are going to use other images taken from the Copernicus website. 
+Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil more effective than the two classes - vegetation and soil - created before. The difference lies in the type of output: the classification shows two distinct classes with clear boundaries, while the DVI provides a continuous gradient that highlights the gradual transition between vegetation and bare soil. To calculate the DVI index, it is necessary to use images that include the NIR band. The latest images were taken from Google Earth, which does not provide the NIR band. Therefore, from now on, we are going to use other images taken from the Copernicus website. 
 ```r
 im.multiframe(2,2)
 dvi79=Helen79[[1]] - Helen79[[2]] #NIR-red
