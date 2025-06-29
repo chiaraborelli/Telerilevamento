@@ -85,6 +85,7 @@ Helen17 = rast("Helen17FC.jpg")
 Helen17=flip(Helen17)
 Helen25 = rast("Helen25FC.jpg")
 Helen25=flip(Helen25)
+
 #CALCULATION DVI (difference vegetation index)
 # Calculate and visualize DVI (Difference Vegetation Index = NIR - Red) for four years in a 2x2 layout
 # DVI highlights vegetation presence and change over time using the difference between NIR and Red bands
@@ -98,7 +99,7 @@ plot(dvi17, col=(inferno(100)), main = "DVI 2017")
 dvi25=Helen25[[1]] - Helen25[[2]] #NIR-red
 plot(dvi25, col=(inferno(100)), main = "DVI 2025")
 
-#CALCULATION NDVI,Normalized Difference Vegetation Index, is a valuable tool for assessing the health and vitality of vegetation
+#CALCULATION NDVI, normalized Difference Vegetation Index, is a valuable tool for assessing the health and vitality of vegetation
 ndvi79 = (Helen79[[1]] - Helen79[[2]]) / (Helen79[[1]] + Helen79[[2]])
 ndvi79 = clamp(ndvi79)
 ndvi84 = (Helen84[[1]] - Helen84[[2]]) / (Helen84[[1]] + Helen84[[2]])
