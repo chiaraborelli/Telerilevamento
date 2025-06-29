@@ -164,7 +164,7 @@ plot(dvidif, col = inferno (100))
 ```
 <img src="https://github.com/user-attachments/assets/13a07dcb-a16f-435d-a446-10ec09d5f39b" width=100%>
 
-Based on the previous image, it is possible to generate a graph showing the distribution of differential values between the two images.
+Based on the previous image, it is possible to generate a graph showing the distribution of differential values between the two images. 
 ```r
 im.ridgeline(dvidif, scale=5, palette="magma")
 ```
