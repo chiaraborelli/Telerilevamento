@@ -186,8 +186,8 @@ fHelen84 = freq(Helen84c)
 totHelen84 = ncell(Helen84c)
 propHelen84 = fHelen84 / totHelen84
 percHelen84 = propHelen84 * 100
-#1 = forest 69 %
-#2 = disastro 31 %
+#1 = forest 62 %
+#2 = disastro 38 %
 
 fHelen25 = freq(Helen25c)
 totHelen25 = ncell(Helen25c)
