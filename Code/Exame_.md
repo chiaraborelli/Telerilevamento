@@ -154,7 +154,7 @@ plot(ndvi84, col = (inferno(100)), main = "NDVI 1984", type = "continuous")
 plot(ndvi17, col = (inferno(100)), main = "NDVI 2017", type = "continuous")
 plot(ndvi25, col = (inferno(100)), main = "NDVI 2025", type = "continuous")
 ```
-It is a useful calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits.
+It is a useful calculation to monitoring the vegetation health and changes over time. The images below allow us to identify several polygons around the volcano - also visible in the DVI image - which correspond to areas characterized by poor vegetation. During the eruption, the force of the explotions generated a shock wave so intense that uprooted trees, which then fell in the wind's direction. The dead plants and insects, the windblown organic matter, and the droppings of herbivores slowly create pockets of soil on the volcanic deposits. It can be observed an increase of biomass over time.
 <img src ="https://github.com/user-attachments/assets/d0271203-24f3-4646-b835-44680e157ff8" width=100%> 
 
 # CALCULATION DVIdif
