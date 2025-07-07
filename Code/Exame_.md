@@ -199,7 +199,7 @@ percHelen25 = propHelen25 * 100
 From the satellite images, it is possible to determine the percentage of vegetation present and the area affected by the eruption. Thanks to  classification techniques, and vegetation indices such as DVI and NDVI, we were able to quantify and visualize the ecological response of the landscape surrounding Mount St. Helens following the 1980 eruption. Based on the calculation shown below, an initial post-eruption vegetation coverage of 62% was identified, which increased by 22% over the course of forty-one years — indicating a significant recovery of the surrounding ecosystem. Prairie Lupine is the name of the plant to reappear afte the eruption, the one that helped to increased the vegetation coverage, his nutrient is nitrogen that can be catch from the air rather than from the soil. Any type of eruption leads to the partial or total destruction of life surrounding the volcanic edifice. What surprises researchers is the ability of certain plants to survive in harsh environmental conditions, and thus contribute to the gradual reintegration of the ecosystem over time. The role of Lupinus lepidus (Prairie Lupine) is an example, a nitrogen-fixing pioneer species that facilitated soil development and the re-establishment of other plant communities. Of the last three images in ggplot, two have inverted colors compared to the one from 1979. This is because they were created using images without infrared bands. Unfortunately, no infrared images were found, but even using those from Google Earth, it is still possible to make the main distinctions.
 
 ```r
-class = c("forest", "human")  #using c because are twe elements of the same vector 
+class = c("forest", "soil")  #using c because are twe elements of the same vector 
 y79 = c(86, 14)
 y84 = c(62, 38) #y means year
 y25 = c(84, 16) 
@@ -207,10 +207,21 @@ tabout = data.frame(class, y79, y84, y25)
 d1 = ggplot(tabout, aes(x=class, y = y84, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) #ensuring we have the same axis
 d2 = ggplot(tabout, aes(x=class, y = y25, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
 d3 = ggplot(tabout, aes(x=class, y = y79, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+```
+<img src="https://github.com/user-attachments/assets/2d190075-1198-4bd1-b461-9e3f98059267" width=50%>
+<img src="https://github.com/user-attachments/assets/b4401363-bebc-48ba-a8ae-d20a28b8d39c" width=50%> 
+<img src="https://github.com/user-attachments/assets/10222253-d955-4d9c-a21a-f5dfc4481321" width=50%>
+
+
+
+
+
+```r
 d=im.ggplot(Helen79)
 d0=im.ggplot(Helen84) #The actual image 
 d00=im.ggplot(Helen25)
 ```
+
 <img src="https://github.com/user-attachments/assets/bbcdddcf-c381-4894-80d2-c8a6e186706c" width=100%>
 <img src="https://github.com/user-attachments/assets/ee15cfa1-ab53-4303-acda-77ed7c2275bd" width=100%>
 <img src="https://github.com/user-attachments/assets/0241df70-7e9b-42d6-8d23-db9d06e9bc2f" width=100%>
