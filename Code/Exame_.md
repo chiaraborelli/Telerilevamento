@@ -119,6 +119,19 @@ Plot(Helen25)
 ```
 <img src="https://github.com/user-attachments/assets/eec0017f-f0b7-476b-aaae-790e86eb3823" width=100%\>
 
+# RGB Image 
+A false-color composite was made for all the images using R=2, G=1, and B=3, in a way to identify the vegetation and the NIR ban, for visual comparison over time.
+In less than fifty years have occoured visible changes in the surrounding vegetation.
+
+ ```r
+ im.multiframe(2,2)
+im.plotRGB(Helen79, r=2, g=1, b=3)
+im.plotRGB(Helen84, r=2, g=1, b=3)
+im.plotRGB(Helen17, r=2, g=1, b=3)
+im.plotRGB(Helen25, r=2, g=1, b=3) 
+```
+<img src= "https://github.com/user-attachments/assets/182607d5-f60c-4652-a7e5-772785377177" width=100%>
+
 
 # CALCULATION DVI (difference vegetation index)
 Using the DVI it is possible to have the presence and the density of the vegetation, It's a basic comparison between vegetation and soil more effective than the two classes - vegetation and soil - created before. The difference lies in the type of output: the classification shows two distinct classes with clear boundaries, while the DVI provides a continuous gradient that highlights the gradual transition between vegetation and bare soil. To calculate the DVI index, it is necessary to use images that include the NIR band. The latest images were taken from Google Earth, which does not provide the NIR band. Therefore, from now on, we are going to use other images taken from the Copernicus website. 
